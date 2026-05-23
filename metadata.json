@@ -1,0 +1,8 @@
+{
+  "name": "Sanaa Makeup",
+  "description": "A premium e-commerce landing page for Sanaa Makeup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
