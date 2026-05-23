@@ -1,13 +1,421 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanaa Makeup</title>
+  
+  <!-- Tailwind CSS via CDN for standalone ease -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'sanaa-pink-50': '#fcf5f5',
+            'sanaa-pink-100': '#faeaea',
+            'sanaa-pink-200': '#f4d4d4',
+            'sanaa-pink-300': '#eebfbf',
+            'sanaa-pink-400': '#e29595',
+            'sanaa-pink-500': '#d66b6b',
+            'sanaa-pink-600': '#c15151',
+            'sanaa-cream': '#faf9f6',
+            'sanaa-charcoal': '#1c1c1c',
+            'sanaa-gold': '#c6a87c',
+          }
+        }
+      }
+    }
+  </script>
 
+  <style>
+    body {
+      background-color: #faf9f6; /* sanaa-cream */
+      color: #1c1c1c; /* sanaa-charcoal */
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="selection:bg-sanaa-pink-200">
+
+  <!-- Application Container -->
+  <div class="min-h-screen bg-sanaa-cream font-sans text-sanaa-charcoal">
+    
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-[#faf9f6]/90 backdrop-blur-md border-b border-sanaa-pink-200">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <button class="lg:hidden text-sanaa-charcoal">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+        <div class="hidden lg:flex gap-8 text-sm font-medium tracking-wide">
+          <a href="#products" class="hover:text-sanaa-gold transition-colors">SHOP ALL</a>
+          <a href="#about" class="hover:text-sanaa-gold transition-colors">OUR STORY</a>
+        </div>
+        <div class="text-3xl font-serif tracking-tight font-medium text-sanaa-charcoal">
+          Sanaa
+        </div>
+        <div class="flex gap-6 items-center">
+          <button class="text-sm font-medium hidden md:block hover:text-sanaa-gold transition-colors">ACCOUNT</button>
+          <button class="flex items-center gap-2 hover:opacity-75 transition-opacity">
+            <i data-lucide="shopping-bag" class="w-5 h-5" stroke-width="1.5"></i>
+            <span class="text-sm bg-sanaa-pink-300 text-sanaa-charcoal w-5 h-5 flex items-center justify-center rounded-full">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-sanaa-pink-50">
+        <div class="absolute inset-0 z-0">
+          <img src="./src/assets/images/hero_model_1779535335394.png" alt="Model with glowing skin" class="w-full h-full object-cover object-[70%_30%] opacity-90" />
+          <div class="absolute inset-0 bg-gradient-to-r from-sanaa-pink-50 via-sanaa-pink-50/80 to-transparent lg:w-2/3"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+          <div class="max-w-xl duration-1000 animate-fade-in-right">
+            <span class="uppercase tracking-[0.2em] text-sanaa-gold text-sm font-medium mb-4 block">
+              The New Standard
+            </span>
+            <h1 class="text-5xl md:text-7xl font-serif leading-[1.1] mb-6 text-sanaa-charcoal">
+              Flawless <br/> Radiant Finish.
+            </h1>
+            <p class="text-lg md:text-xl text-sanaa-charcoal/80 mb-10 font-light max-w-md">
+              Weightless coverage that blurs imperfections and illuminates your natural beauty instantly.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button class="bg-sanaa-charcoal text-white px-8 py-4 uppercase tracking-widest text-xs font-semibold hover:bg-sanaa-gold transition-colors flex items-center justify-center gap-2">
+                Shop Foundation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+              <button class="border border-sanaa-charcoal text-sanaa-charcoal px-8 py-4 uppercase tracking-widest text-xs font-semibold hover:bg-sanaa-pink-100 transition-colors">
+                Find Your Shade
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Product Section -->
+      <section class="py-24 bg-white" id="products">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2 relative">
+              <div class="aspect-[4/5] bg-sanaa-pink-50 overflow-hidden relative group">
+                <img src="./src/assets/images/product_tube_1779535351699.png" alt="Sanaa Liquid Foundation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="absolute -bottom-8 -right-8 bg-white p-6 shadow-xl w-48 hidden lg:block">
+                <div class="flex items-center gap-1 text-sanaa-gold mb-2">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                </div>
+                <p class="text-sm font-serif italic text-sanaa-charcoal/80">
+                  "The most natural finish I've ever experienced."
+                </p>
+              </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 xs:px-4">
+              <h2 class="text-3xl md:text-5xl font-serif mb-8 text-sanaa-charcoal">
+                Luminous Silk Foundation
+              </h2>
+              <p class="text-lg text-sanaa-charcoal/70 font-light mb-10 leading-relaxed">
+                Infused with hydrating skincare ingredients, this lightweight formula provides buildable, seamless coverage that lasts 16 hours without caking or creasing.
+              </p>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+                <div class="flex items-start gap-4">
+                  <div class="bg-sanaa-pink-100 p-3 rounded-full text-sanaa-pink-600">
+                    <i data-lucide="shield-check" class="w-6 h-6" stroke-width="1.5"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Cruelty-Free</h4>
+                    <p class="text-sm text-sanaa-charcoal/60">Never tested on animals.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div class="bg-sanaa-pink-100 p-3 rounded-full text-sanaa-pink-600">
+                    <i data-lucide="clock" class="w-6 h-6" stroke-width="1.5"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">16H Wear</h4>
+                    <p class="text-sm text-sanaa-charcoal/60">Long-lasting coverage.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div class="bg-sanaa-pink-100 p-3 rounded-full text-sanaa-pink-600">
+                    <i data-lucide="droplets" class="w-6 h-6" stroke-width="1.5"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Hydrating</h4>
+                    <p class="text-sm text-sanaa-charcoal/60">Enriched with Hyaluronic Acid.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex items-center justify-between border-t border-b border-sanaa-pink-200 py-6 mb-8">
+                <div class="text-2xl font-serif">$48.00</div>
+                <div class="flex items-center gap-4">
+                  <div class="w-8 h-8 rounded-full bg-[#e8cbb8] border border-gray-300 cursor-pointer ring-2 ring-transparent hover:ring-sanaa-charcoal ring-offset-2 transition-all"></div>
+                  <div class="w-8 h-8 rounded-full bg-[#d2ab8f] border border-gray-300 cursor-pointer ring-2 ring-transparent hover:ring-sanaa-charcoal ring-offset-2 transition-all"></div>
+                  <div class="w-8 h-8 rounded-full bg-[#a87a5a] border border-gray-300 cursor-pointer ring-2 ring-sanaa-charcoal ring-offset-2 transition-all"></div>
+                  <div class="w-8 h-8 rounded-full bg-[#7a4f3b] border border-gray-300 cursor-pointer ring-2 ring-transparent hover:ring-sanaa-charcoal ring-offset-2 transition-all"></div>
+                </div>
+              </div>
+              
+              <button class="w-full bg-sanaa-charcoal text-white py-4 uppercase tracking-widest text-sm font-semibold hover:bg-sanaa-gold transition-colors">
+                Add to Bag
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="py-24 bg-sanaa-pink-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-serif text-sanaa-charcoal mb-4">Precision Engineered Beauty</h2>
+            <p class="text-lg text-sanaa-charcoal/70 max-w-2xl mx-auto font-light">
+              Every drop is designed to blend effortlessly with your natural skin tone.
+            </p>
+          </div>
+          
+          <div class="relative max-w-4xl mx-auto">
+            <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-xl">
+              <img src="./src/assets/images/model_closeup_1779535372421.png" alt="Model Face Close Up" class="w-full h-full object-cover" />
+            </div>
+            
+            <div class="hidden md:block absolute top-[20%] left-[-10%] w-48 bg-white/90 backdrop-blur-sm p-4 shadow-lg border-l-2 border-sanaa-gold">
+              <h4 class="font-semibold text-sm mb-1 uppercase tracking-wider">Seamless Blending</h4>
+              <p class="text-xs text-sanaa-charcoal/70">Micro-pearls adapt to light for zero harsh lines.</p>
+            </div>
+            
+            <div class="hidden md:block absolute bottom-[20%] left-10 w-48 bg-white/90 backdrop-blur-sm p-4 shadow-lg border-l-2 border-sanaa-gold">
+              <h4 class="font-semibold text-sm mb-1 uppercase tracking-wider">Pore-Blurring</h4>
+              <p class="text-xs text-sanaa-charcoal/70">Optical diffusers instantly smooth skin texture.</p>
+            </div>
+            
+            <div class="hidden md:block absolute top-[40%] right-[-10%] w-48 bg-white/90 backdrop-blur-sm p-4 shadow-lg border-r-2 border-sanaa-gold text-right">
+              <h4 class="font-semibold text-sm mb-1 uppercase tracking-wider">Luminous Glow</h4>
+              <p class="text-xs text-sanaa-charcoal/70">A radiant finish that mimics healthy, hydrated skin.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lifestyle & Tutorial -->
+      <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span class="uppercase tracking-[0.2em] text-sanaa-gold text-xs font-medium mb-4 block">
+                The Routine
+              </span>
+              <h2 class="text-4xl md:text-5xl font-serif text-sanaa-charcoal mb-8">
+                Effortless Application
+              </h2>
+              
+              <div class="space-y-8 mb-10">
+                <div class="flex gap-6">
+                  <div class="text-4xl font-serif text-sanaa-pink-300 italic">01</div>
+                  <div>
+                    <h4 class="text-xl font-medium mb-2">Prep</h4>
+                    <p class="text-sanaa-charcoal/70 font-light leading-relaxed">Ensure skin is clean and moisturized. Apply a small amount of primer focusing on the T-zone.</p>
+                  </div>
+                </div>
+                <!-- Steps continued... -->
+                <div class="flex gap-6">
+                  <div class="text-4xl font-serif text-sanaa-pink-300 italic">02</div>
+                  <div>
+                    <h4 class="text-xl font-medium mb-2">Apply</h4>
+                    <p class="text-sanaa-charcoal/70 font-light leading-relaxed">Press 1-2 pumps onto the back of your hand. Use a damp sponge or dense brush to dot onto face.</p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div class="text-4xl font-serif text-sanaa-pink-300 italic">03</div>
+                  <div>
+                    <h4 class="text-xl font-medium mb-2">Blend</h4>
+                    <p class="text-sanaa-charcoal/70 font-light leading-relaxed">Blend outward from the center of the face. Build coverage where needed by tapping, not rubbing.</p>
+                  </div>
+                </div>
+              </div>
+              <img src="./src/assets/images/makeup_swatches_1779535402884.png" alt="Foundation Swatches" class="w-full h-48 object-cover rounded-lg" />
+            </div>
+            
+            <div class="aspect-[3/4]">
+              <img src="./src/assets/images/lifestyle_flatlay_1779535387423.png" alt="Aesthetic lifestyle flat lay" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Reviews Section -->
+      <section class="py-24 bg-sanaa-pink-100/50">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+              <h2 class="text-4xl font-serif text-sanaa-charcoal mb-4">Loved by our community</h2>
+              <div class="flex items-center gap-4">
+                <div class="flex text-sanaa-gold">
+                  <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                </div>
+                <span class="text-sm font-medium">4.9 / 5.0 (2,450 Reviews)</span>
+              </div>
+            </div>
+            <button class="text-sm font-medium border-b border-sanaa-charcoal pb-1 hover:text-sanaa-gold hover:border-sanaa-gold transition-colors">
+              Read all reviews
+            </button>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Review 1 -->
+            <div class="bg-white p-8 border border-sanaa-pink-200">
+              <div class="flex text-sanaa-gold mb-4">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+              <h4 class="font-semibold mb-3">"My new holy grail"</h4>
+              <p class="text-sanaa-charcoal/70 text-sm leading-relaxed mb-6 italic">
+                I've tried dozens of foundations and nothing compares to this. It literally looks like my skin but perfect. Doesn't break me out either.
+              </p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-sanaa-pink-200 flex items-center justify-center text-xs font-medium font-serif">C</div>
+                <div>
+                  <p class="text-xs font-semibold">Chloe M.</p>
+                  <p class="text-[10px] text-sanaa-charcoal/50 uppercase tracking-wider">Verified Buyer</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="bg-white p-8 border border-sanaa-pink-200">
+              <div class="flex text-sanaa-gold mb-4">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+              <h4 class="font-semibold mb-3">"Worth every penny"</h4>
+              <p class="text-sanaa-charcoal/70 text-sm leading-relaxed mb-6 italic">
+                The glow this gives is unbelievable. I get compliments on my skin every single time I wear it. Blends like an absolute dream.
+              </p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-sanaa-pink-200 flex items-center justify-center text-xs font-medium font-serif">S</div>
+                <div>
+                  <p class="text-xs font-semibold">Sarah T.</p>
+                  <p class="text-[10px] text-sanaa-charcoal/50 uppercase tracking-wider">Verified Buyer</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="bg-white p-8 border border-sanaa-pink-200">
+              <div class="flex text-sanaa-gold mb-4">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+              <h4 class="font-semibold mb-3">"Perfect match"</h4>
+              <p class="text-sanaa-charcoal/70 text-sm leading-relaxed mb-6 italic">
+                Finally a brand that understands undertones! Shade 240 is my exact match. It stays put through my 12 hour nursing shifts.
+              </p>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-sanaa-pink-200 flex items-center justify-center text-xs font-medium font-serif">E</div>
+                <div>
+                  <p class="text-xs font-semibold">Elena R.</p>
+                  <p class="text-[10px] text-sanaa-charcoal/50 uppercase tracking-wider">Verified Buyer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sanaa-charcoal text-white pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div class="col-span-1 md:col-span-1">
+            <h3 class="text-3xl font-serif font-medium mb-6">Sanaa</h3>
+            <p class="text-white/60 text-sm leading-relaxed mb-6">
+              Elevating everyday beauty with consciously crafted, high-performance essentials.
+            </p>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-wider mb-6">Shop</h4>
+            <ul class="space-y-4 text-white/70 text-sm">
+              <li><a href="#" class="hover:text-white transition-colors">Face</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Eyes</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Lips</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Sets</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-wider mb-6">About</h4>
+            <ul class="space-y-4 text-white/70 text-sm">
+              <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Sustainability</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Ingredients</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-wider mb-6">Stay Connected</h4>
+            <p class="text-white/70 text-sm mb-4">Join our newsletter for exclusive offers.</p>
+            <div class="flex">
+              <input type="email" placeholder="Email address" class="bg-transparent border-b border-white/30 py-2 w-full text-sm outline-none focus:border-white transition-colors text-white" />
+              <button class="border-b border-white/30 py-2 px-2 hover:border-white transition-colors text-sm font-medium">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
+          <p>&copy; 2026 Sanaa Makeup. All rights reserved.</p>
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
